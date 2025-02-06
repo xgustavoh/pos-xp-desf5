@@ -1,0 +1,44 @@
+@startuml VendaOnlineClass
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+class Product {
+    - id: int
+    - name: string
+    - description: string
+    - price: float
+    - discount: float
+    - discountType: string
+    - stock: int
+    - createdAt: Date
+    - updatedAt: Date
+}
+
+class Order {
+    - id: int
+    - customer: Customer
+    - products: Product[]
+    - createdAt: Date
+    - updatedAt: Date
+}
+
+class Customer {
+    - id: int
+    - name: string
+    - email: string
+    - address: CustomerAddress
+    - phone: string
+    - createdAt: Date
+    - updatedAt: Date
+}
+
+class CustomerAddress {
+    - street: string
+    - number: string
+    - neighborhood: string
+    - city: string
+    - state: string
+    - country: string
+    - zip: string
+}
+
+@enduml

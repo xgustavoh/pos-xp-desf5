@@ -1,0 +1,23 @@
+{
+  "name": "desf5",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "node src/app.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gustavo Minari",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^6.3.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "prisma": "^6.3.1"
+  }
+}

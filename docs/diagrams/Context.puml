@@ -1,0 +1,11 @@
+@startuml VendaOnlineContext
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+Person_Ext(partner, "Parceiros", "Usuário externos que integram com a API")
+System_Ext(partnerSystemExt, "Sistema do Parceiro", "Sistema que consome os dados da API Rest de Vendas Online")
+System(api, "Sistema de Venda Online", "Sistema de gerenciamento de clientes, produtos e pedidos")
+
+Rel(partner, partnerSystemExt, "Usa")
+Rel(partnerSystemExt, api, "Consome os dados da API Rest", "HTTP(S)")
+
+@enduml

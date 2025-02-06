@@ -1,0 +1,13 @@
+@startuml VendaOnlineContainer
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person_Ext(partner, "Parceiros", "Usuário externos que integram com a API")
+System_Boundary(apiBoundary, "API de Venda Online") {
+  Container(api, "API Rest / Backend", "Express (NodeJS)", "Gerencia clientes, produtos e pedidos")
+  ContainerDb(database, "Banco de Dados", "PostgreSQL", "Armazena clientes, produtos e pedidos")
+}
+
+Rel(partner, api, "Integra via API", "HTTP(S)")
+Rel(api, database, "Executa operações", "SQL")
+
+@enduml

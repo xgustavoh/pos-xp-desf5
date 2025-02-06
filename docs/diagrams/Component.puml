@@ -1,0 +1,45 @@
+@startuml VendaOnlineComponent
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Container(api, "API Rest / Backend", "NodeJS", "Gerencia clientes, produtos e pedidos") {
+  ' Controllers
+  Component(appController, "ApplicationController", "Express", "Ponto de entrada central da API, roteando requisições para os controllers")
+  Component(productController, "ProductController", "Express Router", "Gerencia requisições de produtos")
+  Component(orderController, "OrderController", "Express Router", "Gerencia requisições de pedidos")
+  Component(customerController, "CustomerController", "Express Router", "Gerencia requisições de clientes")
+
+  ' Services
+  Component(productService, "ProductService", "Node.js", "Regras de negócio para produtos")
+  Component(orderService, "OrderService", "Node.js", "Regras de negócio para pedidos")
+  Component(customerService, "CustomerService", "Node.js", "Regras de negócio para clientes")
+
+  ' Repositories
+  Component(productRepository, "ProductRepository", "Prisma ORM", "Executa operações no banco de dados")
+  Component(orderRepository, "OrderRepository", "Prisma ORM", "Executa operações no banco de dados")
+  Component(customerRepository, "CustomerRepository", "Prisma ORM", "Executa operações no banco de dados")
+}
+
+' Banco de Dados
+ContainerDb(database, "Banco de Dados", "PostgreSQL", "Armazena os dados do sistema")
+
+' Relacionamentos App -> Controllers
+Rel(appController, productController, "Chamada de Métodos", "/product/*")
+Rel(appController, orderController, "Chamada de Métodos", "/order/*")
+Rel(appController, customerController, "Chamada de Métodos", "/customer/*")
+
+' Relacionamentos Controllers -> Services
+Rel(productController, productService, "Chamada de Métodos")
+Rel(orderController, orderService, "Chamada de Métodos")
+Rel(customerController, customerService, "Chamada de Métodos")
+
+' Relacionamentos Services -> Repositories
+Rel(productService, productRepository, "Chamada de Métodos")
+Rel(orderService, orderRepository, "Chamada de Métodos")
+Rel(customerService, customerRepository, "Chamada de Métodos")
+
+' Relacionamentos Repositories -> Database
+Rel(productRepository, database, "Realiza operações CRUD", "SQL")
+Rel(orderRepository, database, "Realiza operações CRUDs", "SQL")
+Rel(customerRepository, database, "Realiza operações CRUD", "SQL")
+
+@enduml
