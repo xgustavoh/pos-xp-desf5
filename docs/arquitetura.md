@@ -24,6 +24,7 @@ A API segue o padrão MVC, organizando o código em Camadas para garantir separa
  ┣ 📂 controllers   # Controladores (camada de roteamento da API)
  ┣ 📂 services      # Regras de negócio (lógica da aplicação)
  ┣ 📂 repositories  # Repositórios (acesso ao banco de dados)
+ ┣ 📂 routers       # Rotas disponibilizada para a API RESTful
  ┗ 📄 app.js        # Configuração principal da API
 ```
 
@@ -32,9 +33,10 @@ A API segue o padrão MVC, organizando o código em Camadas para garantir separa
 1. [Diagrama de Contexto](diagrams/Context.puml)
 2. [Diagrama de Contêineres](diagrams/Container.puml)
 3. [Diagrama de Componentes](diagrams/Component.puml)
+3. [Diagrama de Código](diagrams/Code.puml)
 
 
-## 🚀 4. Execução
+## 🚀 4. Execução (Direta / Sem Docker)
 
 1. Instale as dependências:
 

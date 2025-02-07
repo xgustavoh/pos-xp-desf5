@@ -15,4 +15,5 @@ Esta API REST permite gerenciar Clientes, Produtos e Pedidos, oferecendo operaç
 $ npm install
 $ docker compose up
 $ npx prisma db push
+$ npm dev
 ```

@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "node src/app.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "db:init": "npx prisma db push"
   },
   "author": "Gustavo Minari",
   "license": "ISC",
