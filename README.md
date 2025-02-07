@@ -9,3 +9,10 @@ Esta API REST permite gerenciar Clientes, Produtos e Pedidos, oferecendo operaç
 -  [📌 API (Endpoints)](docs/api.md)
 -  [🏗 Arquitetura do Sistema](docs/arquitetura.md)
 
+### Run:
+
+```bash
+$ npm install
+$ docker compose up
+$ npx prisma db push
+```
