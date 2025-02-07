@@ -41,4 +41,6 @@ class CustomerAddress {
     - zip: string
 }
 
+Customer -> CustomerAddress : "1:N"
+
 @enduml

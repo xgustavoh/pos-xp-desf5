@@ -23,9 +23,9 @@ Container(api, "API Rest / Backend", "NodeJS", "Gerencia clientes, produtos e pe
 ContainerDb(database, "Banco de Dados", "PostgreSQL", "Armazena os dados do sistema")
 
 ' Relacionamentos App -> Controllers
-Rel(appController, productController, "Chamada de Métodos", "/product/*")
-Rel(appController, orderController, "Chamada de Métodos", "/order/*")
-Rel(appController, customerController, "Chamada de Métodos", "/customer/*")
+Rel(appController, productController, "Chamada de Métodos", "/products/*")
+Rel(appController, orderController, "Chamada de Métodos", "/orders/*")
+Rel(appController, customerController, "Chamada de Métodos", "/customers/*")
 
 ' Relacionamentos Controllers -> Services
 Rel(productController, productService, "Chamada de Métodos")

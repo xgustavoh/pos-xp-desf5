@@ -1,0 +1,68 @@
+@startuml VendaOnlineCode
+
+package "API Rest / Backend (NodeJS)" {
+    
+    class ApplicationController {
+        +main()
+    }
+
+    class ProductRouter {
+        +router()
+    }
+    
+    class ProductController {
+        +createProduct()
+        +updateProduct()
+        +deleteProduct()
+        +getAllProducts()
+        +getProductById()
+        +getProductByName()
+        +getProductCounter()
+    }
+    
+    class ProductService {
+        +createProduct()
+        +updateProduct()
+        +deleteProduct()
+        +getProducts()
+        +getProductById()
+        +getProductByName()
+        +getProductCounter()
+    }
+    
+    class ProductRepository {
+        +createProduct()
+        +updateProduct()
+        +deleteProduct()
+        +getProducts()
+        +getProductById()
+        +getProductByName()
+        +getProductCounter()
+    }
+
+    class ProductModel {
+        - id: int
+        - name: string
+        - description: string
+        - price: float
+        - discount: float
+        - discountType: string
+        - stock: int
+        - createdAt: Date
+        - updatedAt: Date
+    }
+}
+
+class Database {
+    +storeData()
+}
+
+' Relacionamentos
+ApplicationController --> ProductRouter : "Roteia para /products/*"
+ProductRouter --> ProductController : "Chama métodos"
+ProductController --> ProductService : "Chama métodos"
+ProductService --> ProductRepository : "Chama métodos"
+ProductRepository --> Database : "Executa (SQL)"
+ProductRepository -> ProductModel : "Cria o Model"
+
+@enduml
