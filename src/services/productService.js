@@ -53,7 +53,12 @@ export const getProducts = () => productRepository.getProducts()
  * @param {number|string} id - ID do produto
  * @returns {Promise<IProduct|null>}
  */
-export const getProductById = (id) => productRepository.getProductById(id)
+export const getProductById = async (id) => {
+  const product = await productRepository.getProductById(id)
+  if (!product) throw new Error('Produto não existe')
+
+  return product
+}
 
 /**
  * Retorna os produtos que contem o nome informado

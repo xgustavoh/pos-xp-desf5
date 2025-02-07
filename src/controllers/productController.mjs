@@ -24,7 +24,8 @@ export const updateProduct = async (req, res) => {
     const product = await productService.updateProduct(req.params.productId, req.body)
     await res.json(product)
   } catch (error) {
-    const statusCode = error.message.include('não existe') ? 404 : 500
+    console.log(error.message)
+    const statusCode = error.message.includes('não existe') ? 404 : 500
     await res.status(statusCode).json({ error: error.message })
   }
 }
@@ -39,7 +40,7 @@ export const deleteProduct = async (req, res) => {
     const result = await productService.deleteProduct(req.params.productId)
     await res.json({ deleted: !!result })
   } catch (error) {
-    const statusCode = error.message.include('não existe') ? 404 : 500
+    const statusCode = error.message.includes('não existe') ? 404 : 500
     await res.status(statusCode).json({ error: error.message })
   }
 }
@@ -64,7 +65,8 @@ export const getProductById = async (req, res) => {
     const product = await productService.getProductById(req.params.productId)
     await res.json(product)
   } catch (error) {
-    await res.status(404).json({ error: error.message })
+    const statusCode = error.message.includes('não existe') ? 404 : 500
+    await res.status(statusCode).json({ error: error.message })
   }
 }
 
