@@ -24,7 +24,6 @@ export const updateProduct = async (req, res) => {
     const product = await productService.updateProduct(req.params.productId, req.body)
     await res.json(product)
   } catch (error) {
-    console.log(error.message)
     const statusCode = error.message.includes('não existe') ? 404 : 500
     await res.status(statusCode).json({ error: error.message })
   }
