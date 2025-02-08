@@ -12,6 +12,9 @@
   },
   "author": "Gustavo Minari",
   "license": "ISC",
+  "engines": {
+    "node": ">=20.10.0"
+  },
   "dependencies": {
     "@prisma/client": "^6.3.1",
     "dotenv": "^16.4.7",

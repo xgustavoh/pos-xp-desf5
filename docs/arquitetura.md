@@ -9,7 +9,7 @@ Este documento detalha a arquitetura da API de Vendas Online, explicando seu mod
 A API de Vendas Online é responsável por gerenciar clientes, produtos e pedidos. Ela segue o padrão REST API e está estruturada de acordo com a arquitetura MVC.
 
 ### Principais Tecnologias:
-- Node.js
+- Node.js (20+)
 - Express.js
 - Prisma ORM
 - PostgreSQL (Banco de Dados)
